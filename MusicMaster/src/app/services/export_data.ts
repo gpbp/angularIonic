@@ -1,4 +1,3 @@
-
 import {Injectable} from '@angular/core';
 import {DownloadFormat} from '../models/download-format';
 import {File} from '@ionic-native/file';
