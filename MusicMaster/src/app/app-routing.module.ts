@@ -1,11 +1,19 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {SolfegeComponent} from './solfege/solfege.component';
+import {SuccesprogressionComponent} from './succesprogression/succesprogression.component';
+import {SuccesComponent} from './succes/succes.component';
+import {ProgressionComponent} from './progression/progression.component';
 
 const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  }
+  },
+  { path: 'solfege', component: SolfegeComponent },
+  { path: 'succesprogression', component: SuccesprogressionComponent },
+  { path: 'succes', component: SuccesComponent },
+  { path: 'progression', component: ProgressionComponent },
 ];
 @NgModule({
   imports: [
