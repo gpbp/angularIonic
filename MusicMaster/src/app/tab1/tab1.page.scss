@@ -1,5 +1,6 @@
 ion-content {
-  //--background: url('../../../www/img/music_colour_splash_original.jpg') no-repeat center/cover;
+  --ion--background: url('../../../www/assets/wallpaper_music.jpeg') no-repeat center/cover;
+  
 
 }
 
@@ -14,4 +15,9 @@ ion-toolbar {
   //overflow: hidden;
   //background-image: url('/www/img/musicmaster.png');
   // background: url('../../img/getstart.png');
+}
+
+.tranparent-item {
+  background-color: rgba(0,0,0,0);
+  color: #FFFFFF;
 }
