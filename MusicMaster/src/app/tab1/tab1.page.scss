@@ -1,23 +1,24 @@
 ion-content {
-  --ion--background: url('../../../www/assets/wallpaper_music.jpeg') no-repeat center/cover;
+  //--ion--background: url('../../../www/assets/wallpaper_music.jpeg') no-repeat center/cover;
+  --ion-background-color:#111D12;
+  --ion-background-hover-color:white;
   
-
 }
 
 ion-toolbar {
   --background: url('../../../www/img/musicworkshop-image.jpg') no-repeat fixed center; 
-  opacity:0.5;
+  --backgroud-opacity:0.5;
 }
+
 
 .welcome-card {
   max-height: 35vh;
   --background: url('../../../www/img/music_colour_splash_original.jpg') no-repeat center/cover fixed;
-  //overflow: hidden;
-  //background-image: url('/www/img/musicmaster.png');
-  // background: url('../../img/getstart.png');
 }
 
-.tranparent-item {
-  background-color: rgba(0,0,0,0);
-  color: #FFFFFF;
+.menu-item {
+  --ion-background-color: white;
+}
+.menu-item:hover {
+  background-color: red;
 }

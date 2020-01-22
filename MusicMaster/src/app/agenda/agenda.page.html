@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-button>
+  <ion-toolbar color="">
+    <ion-button slot="start">
       <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
     </ion-button>
     <ion-title>
@@ -21,21 +21,21 @@
     </ion-card-header>
     <ion-card-content *ngIf="!collapseCard">
 
-      <ion-item>
+      <ion-item class="agenda-item">
         <ion-input type="text" placeholder="Title" [(ngModel)]="event.title"></ion-input>
       </ion-item>
-      <ion-item>
+      <ion-item class="agenda-item">
         <ion-input type="text" placeholder="Description" [(ngModel)]="event.desc"></ion-input>
       </ion-item>
-      <ion-item>
+      <ion-item class="agenda-item">
         <ion-label>Start</ion-label>
         <ion-datetime displayFormat="MM/DD/YYYY HH:mm" pickerFormat="MMM D:HH:mm" [(ngModel)]="event.startTime" [min]="minDate"></ion-datetime>
       </ion-item>
-      <ion-item>
+      <ion-item class="agenda-item">
         <ion-label>End</ion-label>
         <ion-datetime displayFormat="MM/DD/YYYY HH:mm" pickerFormat="MMM D:HH:mm" [(ngModel)]="event.endTime" [min]="minDate"></ion-datetime>
       </ion-item>
-      <ion-item>
+      <ion-item class="agenda-item">
         <ion-label>All Day?</ion-label>
         <ion-checkbox [(ngModel)]="event.allDay"></ion-checkbox>
       </ion-item>
@@ -44,7 +44,10 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-row>
+
+
+  <ion-card class="calendar">
+  <ion-row class="agenda-row">
     <!-- Change the displayed calendar mode -->
     <ion-col size="4">
       <ion-button expand="block" [color]="calendar.mode == 'month' ? 'primary' : 'secondary'" (click)="changeMode('month')">Month</ion-button>
@@ -71,6 +74,7 @@
     </ion-col>
   </ion-row>
 
+
   <calendar
           [eventSource]="eventSource"
           [calendarMode]="calendar.mode"
@@ -83,6 +87,7 @@
           step="30"
           startingDayWeek="1">
   </calendar>
+</ion-card>
 
   <ion-button expand="block" (click)="exportMyCalendar()">Exporter Agenda</ion-button>
 
