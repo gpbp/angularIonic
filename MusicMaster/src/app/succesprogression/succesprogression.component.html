@@ -3,8 +3,10 @@
 </p>
 <table>
   <tr>
-    <td> <button ion-button type="button" onclick="window.location.href = 'https://w3docs.com';"> Succès </button> </td>
-    <td> <button ion-button type="button" onclick="window.location.href = 'https://w3docs.com';"> Progression </button> </td>
+    <td> <a routerLink="/succes"> <button ion-button type="button"> Succès </button> </a> </td>
+    <td> <a routerLink="/progression"> <button ion-button type="button"> Progression </button> </a> </td>
   </tr>
-  <router-outlet></router-outlet>
+  <tr>
+    <router-outlet></router-outlet>
+  </tr>
 </table>
