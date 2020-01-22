@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar color="primary">
+    <ion-button>
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-button>
     <ion-title>
       {{ viewTitle }}
     </ion-title>
@@ -12,7 +15,7 @@
 <ion-content>
 
   <!-- Card for adding a new event -->
-  <ion-card>
+  <ion-card class="agenda-card">
     <ion-card-header tappable (click)="collapseCard = !collapseCard">
       <ion-card-title>New Event</ion-card-title>
     </ion-card-header>
