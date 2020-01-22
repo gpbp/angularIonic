@@ -27,6 +27,8 @@ export class AgendaPage implements OnInit {
     currentDate: new Date(),
   };
 
+  data = [];
+
   @ViewChild(CalendarComponent, null) myCal: CalendarComponent;
 
   constructor(private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string) { }
@@ -114,5 +116,26 @@ export class AgendaPage implements OnInit {
     selected.setHours(selected.getHours() + 1);
     this.event.endTime = (selected.toISOString());
   }
+
+  private formatData() {
+    // Formating data
+    this.myCal.eventSource.forEach((value, index) => {
+      this.data[index] = {
+        Subject: value.title,
+        StartDate: value.startTime.getDay(),
+        StartTime: value.startTime.getTime(),
+        EndDate: value.endTime.getDay(),
+        EndTime: value.endTime.getTime(),
+        AllDayEvent: value.allDay
+      };
+    });
+  }
+
+  exportMyCalendar() {
+    this.formatData();
+  }
+
+
+
 
 }
