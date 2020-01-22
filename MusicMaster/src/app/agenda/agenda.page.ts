@@ -117,22 +117,10 @@ export class AgendaPage implements OnInit {
     this.event.endTime = (selected.toISOString());
   }
 
-  private formatData() {
-    // Formating data
-    this.myCal.eventSource.forEach((value, index) => {
-      this.data[index] = {
-        Subject: value.title,
-        StartDate: value.startTime.getDay(),
-        StartTime: value.startTime.getTime(),
-        EndDate: value.endTime.getDay(),
-        EndTime: value.endTime.getTime(),
-        AllDayEvent: value.allDay
-      };
-    });
-  }
+
 
   exportMyCalendar() {
-    this.formatData();
+
   }
 
 
