@@ -1,4 +1,24 @@
-.welcome-card img {
+ion-content {
+  //--ion--background: url('../../../www/assets/wallpaper_music.jpeg') no-repeat center/cover;
+  --ion-background-color:#111D12;
+  --ion-background-hover-color:white;
+  
+}
+
+ion-toolbar {
+  --background: url('../../../www/img/musicworkshop-image.jpg') no-repeat fixed center; 
+  --backgroud-opacity:0.5;
+}
+
+
+.welcome-card {
   max-height: 35vh;
-  overflow: hidden;
+  --background: url('../../../www/img/music_colour_splash_original.jpg') no-repeat center/cover fixed;
+}
+
+.menu-item {
+  --ion-background-color: white;
+}
+.menu-item:hover {
+  background-color: red;
 }

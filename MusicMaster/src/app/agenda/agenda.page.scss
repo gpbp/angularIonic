@@ -1,0 +1,32 @@
+.agenda-card {
+    //background: url('../../../www/img/music_colour_splash_original.jpg') no-repeat center/cover fixed; 
+    --background: white; 
+}
+
+
+.agenda-row {
+    //--background: url('../../../www/img/musicworkshop-image.jpg') no-repeat center/cover fixed;
+    --ion-background-color: white; 
+}
+
+.agenda-item {
+    --background: white; 
+}
+
+.agenda-item:hover {
+    --background: white; 
+}
+ion-toolbar {
+    --background: url('../../../www/img/musicworkshop-image.jpg') no-repeat center; 
+}
+
+ion-content {
+    //--ion--background: url('../../../www/assets/wallpaper_music.jpeg') no-repeat center/cover;
+    --ion-background-color:#111D12;
+    --ion-background-hover-color:white;
+    
+  }
+  .calendar {
+    --background: white; 
+    --ion-background-color: white; 
+  }

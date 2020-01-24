@@ -8,6 +8,11 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {SolfegeComponent} from './solfege/solfege.component';
+import {SuccesprogressionComponent} from './succesprogression/succesprogression.component';
+import {SuccesComponent} from './succes/succes.component';
+import {ProgressionComponent} from './progression/progression.component';
+import {FormsModule} from '@angular/forms';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -28,7 +33,7 @@ const firebaseConfig = {
 };
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, SolfegeComponent, SuccesprogressionComponent, SuccesComponent, ProgressionComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
@@ -38,7 +43,8 @@ const firebaseConfig = {
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireAuthGuardModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     StatusBar,
