@@ -12,7 +12,7 @@ const routes: Routes = [
   // },
   {
     path: '',
-    loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'agenda',
