@@ -1,4 +1,17 @@
-<div>
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start">
+      <ion-back-button defaultHref="/menu"></ion-back-button>
+    </ion-button>
+    <ion-title>
+      Sign-up to MusicMaster
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card class="sign-card">
   <h3>Create your account</h3>
   <form #formData="ngForm" (ngSubmit)="createAccount(formData)">
     <input [(ngModel)]="email" #name="ngModel" type="text" id="email" name="email" placeholder="email" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" required/>
@@ -12,6 +25,12 @@
       </div>
     </div>
     <br/>
-    <button type="submit">Login</button>
+    <ion-button type="submit">
+      <ion-icon slot="start" name="log-in"></ion-icon>
+      Login
+    </ion-button>
   </form>
-</div>
+
+</ion-card>
+
+</ion-content>
