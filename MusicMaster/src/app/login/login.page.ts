@@ -1,18 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { auth } from 'firebase/app';
 
 @Component({
   selector: 'app-login',
-  templateUrl: 'tab2.login.component.html',
-  styleUrls: ['tab2.login.component.scss']
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss'],
 })
-export class LoginComponent {
+
+export class LoginPage implements OnInit {
   private error;
 
   constructor(public afAuth: AngularFireAuth, private router: Router) {}
 
+  ngOnInit() {}
+  
   loginWithFacebook() {
     this.afAuth.auth.signInWithPopup(new auth.FacebookAuthProvider()).catch((error) => console.log(error));
   }
@@ -30,3 +33,4 @@ export class LoginComponent {
     }
   }
 }
+

@@ -5,10 +5,10 @@ import { samePasswordValidator } from './samePassword.directive';
 
 @Component({
   selector: 'app-sign-up',
-  templateUrl: 'tab2.sign-up.component.html',
-  styleUrls: ['tab2.sign-up.component.scss']
+  templateUrl: './sign-up.page.html',
+  styleUrls: ['./sign-up.page.scss'],
 })
-export class SignUpComponent implements OnInit {
+export class SignUpPage implements OnInit {
   private error;
   
   constructor(public afAuth: AngularFireAuth, private router: Router) { }
