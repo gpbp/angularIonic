@@ -1,16 +1,42 @@
-<div>
-    <h3>Please login to your account</h3>
-    <form #formData="ngForm" (ngSubmit)="loginWithEmailAndPassword(formData)">
-      <input [(ngModel)]="email" type="text" name="email" placeholder="email" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" required/>
-      <br/>
-      <input [(ngModel)]="password" type="password" name="password" placeholder="password" minlength="8" required/>
-      <br/>
-      <button type="submit">Login</button>
-    </form>
-    <div *ngIf="error">{{error.message}}</div>
-    <button (click)="loginWithFacebook()">Login with your Facebook account</button>
-    <br/>
-    <button (click)="loginWithGoogle()">Login with your Google account</button>
-    <h4>Or sign up here</h4>
-    <button>Sign up</button>
-</div>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Menu Principal
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-card class="">
+    <img src="" alt="" />
+    <ion-card-header>
+      <ion-card-title>Welcome to MusicMaster</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>MENU PRINCIPAL</p>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-item href="https://ionicframework.com/docs/layout/structure">
+    <ion-icon slot="start" color="medium" name="grid"></ion-icon>
+    <ion-label>Agenda</ion-label>
+  </ion-item>
+
+  <ion-item href="https://ionicframework.com/docs/layout/structure">
+    <ion-icon slot="start" color="medium" name="book"></ion-icon>
+    <ion-label>Instruments</ion-label>
+  </ion-item>
+
+  <ion-item href="https://ionicframework.com/docs/layout/structure">
+    <ion-icon slot="start" color="medium" name="book"></ion-icon>
+    <ion-label>Partitions</ion-label>
+  </ion-item>
+
+  <ion-item>
+
+  </ion-item>
+
+</ion-content>
