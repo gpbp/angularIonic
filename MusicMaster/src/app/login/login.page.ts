@@ -17,11 +17,15 @@ export class LoginPage implements OnInit {
   ngOnInit() {}
   
   loginWithFacebook() {
-    this.afAuth.auth.signInWithPopup(new auth.FacebookAuthProvider()).catch((error) => console.log(error));
+    this.afAuth.auth.signInWithPopup(new auth.FacebookAuthProvider())
+    .catch((error) => console.log(error))
+    .then(() => this.navigateToMenu());
   }
 
   loginWithGoogle() {
-    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider()).catch((error) => console.log(error));
+    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
+    .catch((error) => this.error = error)
+    .then(() => this.navigateToMenu());
   }
 
   loginWithEmailAndPassword(formData) {
@@ -30,7 +34,16 @@ export class LoginPage implements OnInit {
       .catch((error) => {
         this.error = error;
       });
-    }
+      this.navigateToMenu();
+    }  
+  }
+
+  private navigateToMenu() {
+    this.router.navigateByUrl("menu");
+  }
+
+  navigateToSignUpComponent() {
+    this.router.navigateByUrl("sign-up")
   }
 }
 
