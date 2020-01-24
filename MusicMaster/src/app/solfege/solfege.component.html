@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-button slot="start">
-      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+      <ion-back-button defaultHref="/menu"></ion-back-button>
     </ion-button>
     <ion-title>
       Solfège
@@ -10,10 +10,15 @@
 </ion-header>
 
 <ion-content>
+  <ion-card class="card1">
+    <ion-card-content >
   <p>
     C'est la page du solfèèèèèèèèège
   </p>
-  <table>
+    </ion-card-content>
+</ion-card>
+<ion-card class="solfege-card">
+  <table class="solfege-card">
     <tr>
       <td> 1 </td>
       <td> Les notes </td>
@@ -33,5 +38,6 @@
       <td> <ion-checkbox [(ngModel)]="cours3"> </ion-checkbox> </td>
     </tr>
   </table>
+</ion-card >
 
 </ion-content>
