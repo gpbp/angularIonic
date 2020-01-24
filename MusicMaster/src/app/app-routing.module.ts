@@ -6,9 +6,13 @@ import {SuccesComponent} from './succes/succes.component';
 import {ProgressionComponent} from './progression/progression.component';
 
 const routes: Routes = [
+  // {
+  //   path: '',
+  //   loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  // },
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
   },
   {
     path: 'agenda',

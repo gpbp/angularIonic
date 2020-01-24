@@ -11,7 +11,7 @@
   <ion-card class="welcome-card">
     <img src="" alt="" />
     <ion-card-header>
-      <ion-card-title>Welcome to MusicMaster</ion-card-title>
+      <ion-card-title>Bienvenue sur MusicMaster</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <p>MENU PRINCIPAL</p>
@@ -19,21 +19,41 @@
   </ion-card>
 
 
-  <ion-item href="agenda" class="transparent-item">
+  <ion-card>
+  <ion-item href="agenda" class="menu-item">
     <ion-icon slot="start" color="medium" name="calendar"></ion-icon>
     <ion-label>Agenda</ion-label>
   </ion-item>
 
-  <ion-item href="https://ionicframework.com/docs/layout/structure">
-    <ion-icon slot="start" color="medium" name="book"></ion-icon>
-    <ion-label>Instruments</ion-label>
-  </ion-item>
-
-  <ion-item href="https://ionicframework.com/docs/layout/structure">
+  <ion-item href="partitions" class="menu-item">
     <ion-icon slot="start" color="medium" name="musical-notes"></ion-icon>
     <ion-label>Partitions</ion-label>
   </ion-item>
 
+  <ion-item href="https://ionicframework.com/docs/layout/structure" class="menu-item">
+    <ion-icon slot="start" color="medium" name="book"></ion-icon>
+    <ion-label>Instruments</ion-label>
+  </ion-item>
+
+  <ion-item href="solfege" class="menu-item">
+    <ion-icon slot="start" color="medium" name="musical-note"></ion-icon>
+    <ion-label>Solphège</ion-label>
+  </ion-item>
+
+  <ion-item href="succesprogression" class="menu-item">
+    <ion-icon slot="start" color="medium" name="clipboard"></ion-icon>
+    <ion-label>Succès / Progression</ion-label>
+  </ion-item>
+
+
+
+
+</ion-card>
+
+<ion-button slot="" href="/">
+  <ion-icon slot="start" name="exit"></ion-icon>
+  Exit
+</ion-button>
 
 
 </ion-content>
