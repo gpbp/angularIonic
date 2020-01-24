@@ -1,0 +1,17 @@
+<div>
+    <h3>Create your account</h3>
+    <form #formData="ngForm" (ngSubmit)="createAccount(formData)">
+      <input [(ngModel)]="email" #name="ngModel" type="text" id="email" name="email" placeholder="email" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" required/>
+      <br/>
+      <input [(ngModel)]="password" type="password" name="password" placeholder="password" minlength="8" required/>
+      <br/>
+      <input [(ngModel)]="retyped_password" name="retyped_password" #retyped_pw="ngModel" type="password"  placeholder="retyped password" minlength="8" required/>
+      <div *ngIf="retyped_pw.invalid">
+        <div *ngIf="retyped_pw.errors.required">
+          This field is required
+        </div>
+      </div>
+      <br/>
+      <button type="submit">Login</button>
+    </form>
+</div>
