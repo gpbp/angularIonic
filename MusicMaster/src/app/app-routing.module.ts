@@ -38,6 +38,10 @@ const routes: Routes = [
     path: 'partition',
     loadChildren: () => import('./partition/partition.module').then( m => m.PartitionPageModule)
   },
+  {
+    path: 'instruments',
+    loadChildren: () => import('./instruments/instruments.module').then( m => m.InstrumentsPageModule)
+  },
 ];
 @NgModule({
   imports: [
