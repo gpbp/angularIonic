@@ -1,0 +1,22 @@
+ion-content {
+    //--background: url('../../../www/img/music_colour_splash_original.jpg') no-repeat center/cover;
+    //--ion-background-color:#111D12;
+    //--ion-background-color: white;
+    //--ion-background-hover-color:white;
+    
+  }
+
+ion-toolbar {
+    --background: url('../../../www/img/musicworkshop-image.jpg') no-repeat center;
+}
+  
+  
+.welcome-card {
+height: 40vh;
+--background: url('../../../www/img/music_colour_splash_original.jpg') no-repeat center/cover fixed;
+}
+
+.login-card {
+    --ion-background-color: orange;
+    --ion-background-hover-color:white;
+}
