@@ -1,7 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { SuccesComponent } from './succes.component';
+import {SuccesComponent} from './succes.component';
 
 describe('SuccesComponent', () => {
   let component: SuccesComponent;

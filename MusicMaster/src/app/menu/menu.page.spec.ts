@@ -1,7 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { MenuPage } from './menu.page';
+import {MenuPage} from './menu.page';
 
 describe('MenuPage', () => {
   let component: MenuPage;

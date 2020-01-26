@@ -1,7 +1,7 @@
-import { Component, ViewChild, OnInit, Inject, LOCALE_ID } from '@angular/core';
-import { CalendarComponent } from 'ionic2-calendar/calendar';
-import { AlertController } from '@ionic/angular';
-import { formatDate } from '@angular/common';
+import {Component, Inject, LOCALE_ID, OnInit, ViewChild} from '@angular/core';
+import {CalendarComponent} from 'ionic2-calendar/calendar';
+import {AlertController} from '@ionic/angular';
+import {formatDate} from '@angular/common';
 
 @Component({
   selector: 'app-agenda',

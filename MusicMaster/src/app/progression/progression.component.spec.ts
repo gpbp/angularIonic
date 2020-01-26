@@ -1,7 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { ProgressionComponent } from './progression.component';
+import {ProgressionComponent} from './progression.component';
 
 describe('ProgressionComponent', () => {
   let component: ProgressionComponent;

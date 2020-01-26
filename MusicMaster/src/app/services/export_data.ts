@@ -1,12 +1,10 @@
-
 import {Injectable} from '@angular/core';
-import {DownloadFormat} from '../models/download-format';
-import {File} from '@ionic-native/file';
-import {Platform, AlertController, ModalController} from 'ionic-angular';
-import {SelectFolder} from '../modals/select-folder/select-folder';
-import {Folder} from '../models/folder';
+import {DownloadFormat} from 'src/models/download-format';
+import {File} from '@ionic-native/file/ngx';
+import {AlertController, ModalController, Platform} from 'ionic-angular';
+import {SelectFolder} from 'src/modals/select-folder/select-folder';
+import {Folder} from 'src/models/folder';
 import {CalendarComponent} from 'ionic2-calendar/calendar';
-import {any} from 'codelyzer/util/function';
 
 
 /**
@@ -14,7 +12,6 @@ import {any} from 'codelyzer/util/function';
  */
 @Injectable()
 export class ExportData {
-
     constructor(private file: File,
                 private platform: Platform,
                 private alertCtrl: AlertController,
@@ -26,7 +23,7 @@ export class ExportData {
     private formatData(myCal: CalendarComponent, data: any[]): void {
         // Formating data
         myCal.eventSource.forEach((value, index) => {
-            this.data[index] = {
+            data[index] = {
                 Subject: value.title,
                 StartDate: value.startTime.getDay(),
                 StartTime: value.startTime.getTime(),
