@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import {SolfegeComponent} from './solfege/solfege.component';
-import {SuccesprogressionComponent} from './succesprogression/succesprogression.component';
-import {SuccesComponent} from './succes/succes.component';
-import {ProgressionComponent} from './progression/progression.component';
+import {SuccesprogressionPage} from './succesprogression/succesprogression.page';
 
 const routes: Routes = [
   // {
@@ -22,10 +19,24 @@ const routes: Routes = [
     path: 'menu',
     loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
   },
-  { path: 'solfege', component: SolfegeComponent },
-  { path: 'succesprogression', component: SuccesprogressionComponent },
-  { path: 'succes', component: SuccesComponent },
-  { path: 'progression', component: ProgressionComponent },
+  {
+    path: 'solfege',
+    loadChildren: () => import('./solfege/solfege.module').then( m => m.SolfegeModule)
+  },
+  {
+    path: 'succesprogression',
+    component: SuccesprogressionPage,
+    children: [
+      {
+        path: 'succes',
+        loadChildren: () => import('./succes/succes.module').then( m => m.SuccesModule)
+      },
+      {
+        path: 'progression',
+        loadChildren: () => import('./progression/progression.module').then(m => m.ProgressionModule)
+      }
+    ]
+  },
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
