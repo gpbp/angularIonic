@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start">
+      <ion-back-button defaultHref="/menu"></ion-back-button>
+    </ion-button>
+    <ion-title>
+      Succès & Progression
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-app>
+    <ion-router-outlet></ion-router-outlet>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="succes">
+          <ion-label>Succès</ion-label>
+          <ion-icon name="list"></ion-icon>
+        </ion-tab-button>
+        <ion-tab-button tab="progression">
+          <ion-label>Progression</ion-label>
+          <ion-icon name="pie"></ion-icon>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-app>
+</ion-content>
