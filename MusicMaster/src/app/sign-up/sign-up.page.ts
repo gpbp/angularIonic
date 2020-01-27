@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { samePasswordValidator } from './samePassword.directive';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,11 +13,6 @@ export class SignUpPage implements OnInit {
   constructor(public afAuth: AngularFireAuth, private router: Router) { }
 
   ngOnInit() {
-    //this.setUpForm();
-  }
-  
-  private setUpForm() {
-    this.addValidatorToRetypedPwControl();
   }
 
   createAccount(formData) {
@@ -26,13 +20,8 @@ export class SignUpPage implements OnInit {
       const email = formData.value.email;
       const password = formData.value.password;
       this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-      .catch((error) => this.error = error);
+      .catch((error) => this.error = error)
+      .then(() => this.router.navigateByUrl("menu"));
     } 
-  }
-
-  private addValidatorToRetypedPwControl() {
-    //const passwordControl = this.createAccountForm.get('password');
-    //const password = passwordControl.value;
-    //this.createAccountForm.get('retyped_password').setValidators(samePasswordValidator(password));
   }
 }
