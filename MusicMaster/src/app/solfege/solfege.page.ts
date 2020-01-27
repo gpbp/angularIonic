@@ -1,21 +1,39 @@
 import { Component, OnInit } from '@angular/core';
+import { Tutorial } from '../model/tutorial';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
-@Component({
+@Component({ 
   selector: 'app-solfege',
   templateUrl: './solfege.page.html',
   styleUrls: ['./solfege.page.scss'],
 })
 export class SolfegePage implements OnInit {
-    cours1: boolean;
-  cours2: boolean;
-  cours3: boolean;
-  cours4: boolean;
-  cours5: boolean;
-  cours6: boolean;
-  cours7: boolean;
+  private readonly COLLECTION_URL = 'Tutorials/'
+  tutorials: Observable<Tutorial[]>;
 
-  constructor() { }
+  constructor(private afs: AngularFirestore, private tutorialsCollection: AngularFirestoreCollection<Tutorial>) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.initTutorials();
+  }
+
+  private initTutorials() {
+    this.tutorialsCollection = this.afs.collection<Tutorial>(this.COLLECTION_URL);
+    this.tutorials = this.tutorialsCollection.snapshotChanges().pipe(
+      map(actions => actions.map(action => {
+        const tutorial = action.payload.doc.data() as Tutorial;
+        const tutorialId = action.payload.doc.id;
+        return {tutorialId, ...tutorial};
+      }))
+    );
+  }
+
+  isDone(tutorialToUpdate: Tutorial) {
+    const documentURL = this.COLLECTION_URL + tutorialToUpdate.tutorialId;
+    const tutorial = {done: tutorialToUpdate.done};
+    this.afs.doc<Tutorial>(documentURL).update(tutorial);
+  }
 
 }

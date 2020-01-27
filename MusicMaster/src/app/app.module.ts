@@ -14,9 +14,12 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthGuardModule} from '@angular/fire/auth-guard';
+import { AngularFirestoreModule, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 import { ReactiveFormsModule } from '@angular/forms';
-import {SuccesprogressionPage} from "./succesprogression/succesprogression.page";
+import { SuccesprogressionPage } from "./succesprogression/succesprogression.page";
+import {Tutorial} from './model/tutorial';
+
 
 const firebaseConfig = {
     apiKey: 'AIzaSyB1t5mp0-jBFS8LKFiIR5jZY8LRqCvFupI',
@@ -40,13 +43,15 @@ const firebaseConfig = {
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireAuthGuardModule,
+    AngularFirestoreModule,
     ReactiveFormsModule,
     FormsModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: AngularFirestoreCollection}
   ],
   bootstrap: [AppComponent]
 })
