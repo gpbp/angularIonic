@@ -1,7 +1,7 @@
 table {
-  border-width:1px;
-  border-style:solid;
-  border-color:black;
+  //border-width:1px;
+  //border-style:solid;
+  //border-color:black;
   width:50%;
   background-color: white;
 }
@@ -61,6 +61,7 @@ ion-toolbar {
 
 .solfege-card {
   --ion-background-color: white;
+  background-color: white;
 }
 .menu-item:hover {
   background-color: red;
