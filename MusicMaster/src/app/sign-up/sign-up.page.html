@@ -12,6 +12,7 @@
 
 <ion-content>
   <ion-card class="sign-card">
+    <div class="sign-card-div">
   <h3>Create your account</h3>
   <form #formData="ngForm" (ngSubmit)="createAccount(formData)">
     <input [(ngModel)]="email" #name="ngModel" type="text" id="email" name="email" placeholder="email" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" required/>
@@ -30,6 +31,7 @@
       Login
     </ion-button>
   </form>
+</div>
 
 </ion-card>
 
