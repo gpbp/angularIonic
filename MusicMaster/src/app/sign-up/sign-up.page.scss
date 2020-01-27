@@ -1,6 +1,6 @@
 ion-content {
     //--background: url('../../../www/img/music_colour_splash_original.jpg') no-repeat center/cover;
-    //--ion-background-color:#111D12;
+    --ion-background-color:#111D12;
     //--ion-background-color: white;
     //--ion-background-hover-color:white;
     
@@ -17,6 +17,11 @@ height: 40vh;
 }
 
 .sign-card {
-    --ion-background-color: orange;
+    background-color: white;
     --ion-background-hover-color:white;
+}
+
+.sign-card-div {
+    padding-left: 20px; 
+    padding-bottom: 10px;
 }
