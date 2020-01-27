@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./solfege.page.scss'],
 })
 export class SolfegePage implements OnInit {
-  private readonly COLLECTION_URL = 'Tutorials/'
+  private readonly COLLECTION_URL = 'tutorials/'
   tutorials: Observable<Tutorial[]>;
 
   constructor(private afs: AngularFirestore, private tutorialsCollection: AngularFirestoreCollection<Tutorial>) { }

@@ -3,4 +3,5 @@ export interface Tutorial {
     name: string;
     link: string;
     done?: boolean;
+    clientId: string;
 }
