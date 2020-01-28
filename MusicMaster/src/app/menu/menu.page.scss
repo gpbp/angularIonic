@@ -12,9 +12,11 @@ ion-toolbar {
 
 .welcome-card {
   height: 30vh;
-  background-image: url('../../../www/img/music_colour_splash_original.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+  //background-image: url('../../../www/img/music_colour_splash_original.jpg');
+  //background-repeat: no-repeat;
+  //background-size: cover;
+  //background-size: auto;
+  --background: url('../../../www/img/ob_3a1671_pmaa-1.jpg') no-repeat center/cover fixed; 
 }
 .welcome-card ion-card-title {
   background-color: white;
@@ -32,4 +34,15 @@ ion-toolbar {
 
 .exit_button {
  padding-left: 20px !important;
+}
+
+
+@media screen and (max-width: 1024px) { /* Le traitement est ici spécifique à l'image */
+  .welcome-card {
+    height: 30vh;
+    //--background: url('../../../www/img/music_colour_splash_original.jpg') no-repeat center/cover fixed; 
+    background-image: url('../../../www/img/ob_3a1671_pmaa-1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+ }
 }
