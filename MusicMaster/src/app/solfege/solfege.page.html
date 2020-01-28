@@ -10,32 +10,25 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>
-      Les bases
-    </ion-list-header>
-    <ion-item *ngFor="let cours of startingCourses" (click)="itemSelected(cours)">
-      {{ cours.name }}
+  <ion-header>Les bases</ion-header>
+  <ion-list *ngFor="let tuto of tutorials | async">
+    <ion-item *ngIf="tuto.difficulty_level <= 1">
+      <ion-label>{{tuto.name}}</ion-label>
+      <ion-toggle slot="end"  [(ngModel)]="tuto.done" checked="{{tuto.done}}" (ionChange)="isDone(tuto)"></ion-toggle>
     </ion-item>
-    <ion-list-header>
-      Cours avancés
-    </ion-list-header>
-    <button ion-item *ngFor="let cours of advancedCourses" (click)="itemSelected(cours)">
-      {{ cours.name }}
-    </button>
-    <ion-list-header>
-      Cours experts
-    </ion-list-header>
-    <button ion-item *ngFor="let cours of expertCourses" (click)="itemSelected(cours)">
-      {{ cours.name }}
-    </button>
   </ion-list>
-<!--  <table align=center *ngFor="let tutorial of tutorials | async ">
-    <tr align=center valign="center">
-      <td> {{tutorial.name}} </td>
-      <td> <ion-button>  <a href="{{tutorial.link}}">Voir</a> </ion-button> </td>
-      <td> <ion-checkbox checked="{{tutorial.done}}" [(ngModel)]="tutorial.done" (ionChange)="isDone(tutorial)"> </ion-checkbox> </td>
-    </tr>
-  </table>-->
-
+  <ion-header>Les cours avancés</ion-header>
+  <ion-list *ngFor="let tuto of tutorials | async">
+    <ion-item *ngIf="tuto.difficulty_level > 1 && tuto.difficulty_level <=5">
+      <ion-label>{{tuto.name}}</ion-label>
+      <ion-toggle slot="end"  [(ngModel)]="tuto.done" checked="{{tuto.done}}" (ionChange)="isDone(tuto)"></ion-toggle>
+    </ion-item>
+  </ion-list>
+  <ion-header>Pour les experts</ion-header>
+  <ion-list *ngFor="let tuto of tutorials | async">
+    <ion-item *ngIf="tuto.difficulty_level > 5">
+      <ion-label>{{tuto.name}}</ion-label>
+      <ion-toggle slot="end"  [(ngModel)]="tuto.done" checked="{{tuto.done}}" (ionChange)="isDone(tuto)"></ion-toggle>
+    </ion-item>
+  </ion-list>
 </ion-content>
