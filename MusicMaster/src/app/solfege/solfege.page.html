@@ -14,28 +14,8 @@
     <ion-list-header>
       Les bases
     </ion-list-header>
-    <ion-item *ngFor="let cours of startingCourses" (click)="itemSelected(cours)">
-      {{ cours.name }}
+    <ion-item *ngFor="let tutorial of tutorials | async" (click)="itemSelected(tutorial)" >
+      <div [ngClass]="{ 'use-green-background': tutorial.done }"> {{ tutorial.name }} </div>
     </ion-item>
-    <ion-list-header>
-      Cours avancés
-    </ion-list-header>
-    <button ion-item *ngFor="let cours of advancedCourses" (click)="itemSelected(cours)">
-      {{ cours.name }}
-    </button>
-    <ion-list-header>
-      Cours experts
-    </ion-list-header>
-    <button ion-item *ngFor="let cours of expertCourses" (click)="itemSelected(cours)">
-      {{ cours.name }}
-    </button>
   </ion-list>
-<!--  <table align=center *ngFor="let tutorial of tutorials | async ">
-    <tr align=center valign="center">
-      <td> {{tutorial.name}} </td>
-      <td> <ion-button>  <a href="{{tutorial.link}}">Voir</a> </ion-button> </td>
-      <td> <ion-checkbox checked="{{tutorial.done}}" [(ngModel)]="tutorial.done" (ionChange)="isDone(tutorial)"> </ion-checkbox> </td>
-    </tr>
-  </table>-->
-
 </ion-content>

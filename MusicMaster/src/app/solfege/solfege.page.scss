@@ -1,3 +1,7 @@
 ion-item:hover{
-  background-color: red;
+  --ion-background-color: gray;
+}
+
+.use-green-background {
+  --ion-background-color: green;
 }
