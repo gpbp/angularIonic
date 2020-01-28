@@ -2,6 +2,11 @@ import { Component, ViewChild, OnInit, Inject, LOCALE_ID } from '@angular/core';
 import { CalendarComponent } from 'ionic2-calendar/calendar';
 import { AlertController } from '@ionic/angular';
 import { formatDate } from '@angular/common';
+import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Event } from './../model/event';
 
 @Component({
   selector: 'app-agenda',
@@ -21,7 +26,7 @@ export class AgendaPage implements OnInit {
 
   minDate = new Date().toISOString();
 
-  eventSource = [];
+  events: Observable<Event[]>;
   viewTitle;
 
   calendar = {
@@ -33,13 +38,19 @@ export class AgendaPage implements OnInit {
 
   @ViewChild(CalendarComponent, null) myCal: CalendarComponent;
 
-  constructor(private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string) { }
+  constructor(private alertCtrl: AlertController, 
+    @Inject(LOCALE_ID) private locale: string, 
+    private afs: AngularFirestore, 
+    private eventsCollection: AngularFirestoreCollection, 
+    private afAuth: AngularFireAuth) { }
 
   ngOnInit() {
-    this.resetEvent();
+    //this.resetEvent();
+    //this.initUserId();
+    this.initCalendar();
   }
 
-  resetEvent() {
+  private resetEvent() {
     this.event = {
       title: '',
       desc: '',
@@ -49,6 +60,19 @@ export class AgendaPage implements OnInit {
     };
   }
 
+  private initCalendar() {
+    this.eventsCollection = this.afs.collection<Event>(this.COLLECTION_URL);
+    this.events = this.eventsCollection.snapshotChanges().pipe(
+      map(actions => actions.map(action => {
+        const event = action.payload.doc.data() as Event;
+        for(let date = event.startTime; date < event.endTime; date.setDate(date.getDate() + 1) ) {
+          this.myCal.eventSource.push(event);
+        }
+        return event; 
+      }))
+    );
+    this.myCal.loadEvents();
+  }
   // Create the right event format and reload source
   addEvent() {
     const eventCopy = {
@@ -56,7 +80,8 @@ export class AgendaPage implements OnInit {
       startTime:  new Date(this.event.startTime),
       endTime: new Date(this.event.endTime),
       allDay: this.event.allDay,
-      desc: this.event.desc
+      description: this.event.desc,
+      userId: this.afAuth.auth.currentUser.uid
     };
     if (eventCopy.allDay) {
       const start = eventCopy.startTime;
@@ -66,9 +91,15 @@ export class AgendaPage implements OnInit {
       eventCopy.endTime = new Date(Date.UTC(end.getUTCFullYear(), end.getUTCMonth(), end.getUTCDate() + 1));
     }
 
-    this.eventSource.push(eventCopy);
+    //this.eventSource.push(eventCopy);
+    this.sendEventToFirestore(eventCopy);
     this.myCal.loadEvents();
     this.resetEvent();
+  }
+
+  private sendEventToFirestore(eventCopy) {
+    this.eventsCollection = this.afs.collection<Event>(this.COLLECTION_URL);
+    this.eventsCollection.add(eventCopy);
   }
   // Change current month/week/day
   next() {

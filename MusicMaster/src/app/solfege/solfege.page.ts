@@ -13,8 +13,6 @@ export class SolfegePage implements OnInit {
   private readonly COLLECTION_URL = 'tutorials/';
 
   tutorials: Observable<Tutorial[]>;
-  advancedTutorials: Observable<Tutorial[]>;
-  expertTutorials: Observable<Tutorial[]>;
 
   constructor(private afs: AngularFirestore, private tutorialsCollection: AngularFirestoreCollection<Tutorial>) { }
 
