@@ -14,8 +14,8 @@
     <ion-list-header>
       Les bases
     </ion-list-header>
-    <ion-item *ngFor="let tutorial of tutorials | async" (click)="itemSelected(tutorial)" >
-      <div [ngClass]="{ 'use-green-background': tutorial.done }"> {{ tutorial.name }} </div>
+    <ion-item *ngFor="let tutorial of tutorials | async" (click)="itemSelected(tutorial)" [ngClass]="{ 'use-green-background': tutorial.done }">
+      {{ tutorial.name }}
     </ion-item>
   </ion-list>
 </ion-content>

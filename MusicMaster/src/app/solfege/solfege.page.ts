@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Cours } from '../models/cours';
 import { Tutorial } from '../model/tutorial';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
