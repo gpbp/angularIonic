@@ -18,9 +18,10 @@ ion-toolbar {
 
 .menu-item {
   --ion-background-color: white;
+  background-color: white;
 }
 .menu-item:hover {
-  background-color: red;
+  background-color: darkseagreen;
 }
 
 .exit_button {

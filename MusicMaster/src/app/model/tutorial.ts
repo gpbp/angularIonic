@@ -3,5 +3,6 @@ export interface Tutorial {
     name: string;
     link: string;
     done?: boolean;
-    clientId: string;
+    clientId?: string;
+    difficulty_level: number;
 }

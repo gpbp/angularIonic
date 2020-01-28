@@ -9,6 +9,8 @@ import { formatDate } from '@angular/common';
   styleUrls: ['./agenda.page.scss'],
 })
 export class AgendaPage implements OnInit {
+  private readonly COLLECTION_URL = "events";
+
   event = {
     title: '',
     desc: '',
@@ -121,6 +123,10 @@ export class AgendaPage implements OnInit {
 
   exportMyCalendar() {
 
+  }
+
+  persistEventToFirebase() {
+    
   }
 
 
