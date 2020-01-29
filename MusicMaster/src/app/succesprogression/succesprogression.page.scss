@@ -1,6 +1,7 @@
 .menu-item {
   --ion-background-color: white;
 }
-.menu-item:hover {
-  background-color: red;
+
+ion-item:hover{
+  --ion-background-color: gray;
 }

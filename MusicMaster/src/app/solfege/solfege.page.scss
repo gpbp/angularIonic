@@ -1,68 +1,7 @@
-table {
-  //border-width:1px;
-  //border-style:solid;
-  //border-color:black;
-  width:50%;
-  background-color: white;
-}
-.styled {
-  border: 0;
-  line-height: 2.5;
-  padding: 0 20px;
-  font-size: 1rem;
-  text-align: center;
-  color: #fff;
-  text-shadow: 1px 1px 1px #000;
-  border-radius: 10px;
-  background-color: rgba(220, 0, 0, 1);
-  background-image: linear-gradient(to top left,
-          rgba(0, 0, 0, .2),
-          rgba(0, 0, 0, .2) 30%,
-          rgba(0, 0, 0, 0));
-  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
-  inset -2px -2px 3px rgba(0, 0, 0, .6);
+ion-item:hover{
+  --ion-background-color: gray;
 }
 
-.styled:hover {
-  background-color: rgba(255, 0, 0, 1);
-}
-
-.styled:active {
-  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
-  inset 2px 2px 3px rgba(0, 0, 0, .6);
-}
-
-p,
-label {
-  font: 1rem 'Fira Sans', sans-serif;
-}
-
-input {
-  margin: .4rem;
-}
-
-ion-content {
-  //--ion--background: url('../../../www/assets/wallpaper_music.jpeg') no-repeat center/cover;
-  --ion-background-color:#111D12;
-  --ion-background-hover-color:white;
-  
-}
-
-ion-toolbar {
-  --background: url('../../../www/img/musicworkshop-image.jpg') no-repeat fixed center; 
-  --backgroud-opacity:0.5;
-}
-
-
-.card1 {
-  max-height: 35vh;
-  --background: url('../../../www/img/music_colour_splash_original.jpg') no-repeat center/cover fixed;
-}
-
-.solfege-card {
-  --ion-background-color: white;
-  background-color: white;
-}
-.menu-item:hover {
-  background-color: red;
+.use-green-background {
+  --ion-background-color: green;
 }
