@@ -14,7 +14,7 @@ export class PartitionPage implements OnInit {
   }
 
   uploadSheet(event) {
-    console.log(event);
+    //console.log(event);
   }
 
 
