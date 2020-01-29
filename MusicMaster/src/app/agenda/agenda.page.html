@@ -7,7 +7,7 @@
       {{ viewTitle }}
     </ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="today()">Today</ion-button>
+      <ion-button (click)="today()">Aujourd'hui</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -19,29 +19,29 @@
 
   <ion-card class="agenda-card">
     <ion-card-header tappable (click)="collapseCard = !collapseCard">
-      <ion-card-title>New Event</ion-card-title>
+      <ion-card-title>Nouvel événement</ion-card-title>
     </ion-card-header>
     <ion-card-content *ngIf="!collapseCard">
 
       <ion-item class="agenda-item">
-        <ion-input type="text" placeholder="Title" [(ngModel)]="event.title"></ion-input>
+        <ion-input type="text" placeholder="Titre" [(ngModel)]="event.title"></ion-input>
       </ion-item>
       <ion-item class="agenda-item">
         <ion-input type="text" placeholder="Description" [(ngModel)]="event.desc"></ion-input>
       </ion-item>
       <ion-item class="agenda-item">
-        <ion-label>Start</ion-label>
+        <ion-label>Début</ion-label>
         <ion-datetime displayFormat="MM/DD/YYYY HH:mm" pickerFormat="MMM D:HH:mm" [(ngModel)]="event.startTime" [min]="minDate"></ion-datetime>
       </ion-item>
       <ion-item class="agenda-item">
-        <ion-label>End</ion-label>
+        <ion-label>Fin</ion-label>
         <ion-datetime displayFormat="MM/DD/YYYY HH:mm" pickerFormat="MMM D:HH:mm" [(ngModel)]="event.endTime" [min]="minDate"></ion-datetime>
       </ion-item>
       <ion-item class="agenda-item">
-        <ion-label>All Day?</ion-label>
+        <ion-label>Toute la journée ?</ion-label>
         <ion-checkbox [(ngModel)]="event.allDay"></ion-checkbox>
       </ion-item>
-      <ion-button fill="outline" expand="block" (click)="addEvent()" [disabled]="event.title == ''">Add Event</ion-button>
+      <ion-button fill="outline" expand="block" (click)="addEvent()" [disabled]="event.title == ''">Ajouter un événement</ion-button>
 
     </ion-card-content>
   </ion-card>
@@ -50,13 +50,13 @@
     <ion-row class="agenda-row">
       <!-- Change the displayed calendar mode -->
       <ion-col size="4">
-        <ion-button expand="block" [color]="calendar.mode == 'month' ? 'primary' : 'secondary'" (click)="changeMode('month')">Month</ion-button>
+        <ion-button expand="block" [color]="calendar.mode == 'month' ? 'primary' : 'secondary'" (click)="changeMode('month')">Mois</ion-button>
       </ion-col>
       <ion-col size="4">
-        <ion-button expand="block" [color]="calendar.mode == 'week' ? 'primary' : 'secondary'" (click)="changeMode('week')">Week</ion-button>
+        <ion-button expand="block" [color]="calendar.mode == 'week' ? 'primary' : 'secondary'" (click)="changeMode('week')">Semaine</ion-button>
       </ion-col>
       <ion-col size="4">
-        <ion-button expand="block" [color]="calendar.mode == 'day' ? 'primary' : 'secondary'" (click)="changeMode('day')">Day</ion-button>
+        <ion-button expand="block" [color]="calendar.mode == 'day' ? 'primary' : 'secondary'" (click)="changeMode('day')">Jour</ion-button>
       </ion-col>
 
       <!-- Move back one screen of the slides -->
