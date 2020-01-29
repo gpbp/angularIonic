@@ -19,7 +19,8 @@ import { AngularFireStorageModule, StorageBucket } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
 
 import { ReactiveFormsModule } from '@angular/forms';
-import { SuccesprogressionPage } from "./succesprogression/succesprogression.page";
+import { SuccesprogressionPage } from './succesprogression/succesprogression.page';
+import { TutorialsPipe } from './pipes/tutorials.pipe';
 
 @NgModule({
   declarations: [AppComponent, SuccesprogressionPage],
@@ -40,9 +41,11 @@ import { SuccesprogressionPage } from "./succesprogression/succesprogression.pag
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    { provide: AngularFirestoreCollection},
-    { provide: StorageBucket, useValue: 'my-bucket-list'}
+    {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
+    {provide: AngularFirestoreCollection},
+    {provide: StorageBucket, useValue: 'my-bucket-list'}
+  ],
+  exports: [
   ],
   bootstrap: [AppComponent]
 })
