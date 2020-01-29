@@ -9,5 +9,5 @@
 
 <ion-content>
   <ion-button (click)="openSheet">Ouvrir Partition</ion-button>
-  <ion-button (click)="importSheet">Importer Partition</ion-button>
+  <input type="file" (change)="uploadSheet($event)">Importer Partition</input>
 </ion-content>

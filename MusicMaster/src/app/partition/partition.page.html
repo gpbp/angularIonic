@@ -12,6 +12,7 @@
 <ion-content>
   <ion-card>
     <ion-button (click)="openSheet">Ouvrir Partition</ion-button>
-    <ion-button (click)="importSheet">Importer Partition</ion-button>
+    <input type="file" (change)="uploadSheet($event)" value="Importer partition">
   </ion-card>
 </ion-content>
+
