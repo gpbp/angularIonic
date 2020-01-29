@@ -1,10 +1,14 @@
 import {Component, Inject, LOCALE_ID, OnInit, ViewChild} from '@angular/core';
-import {CalendarComponent} from 'ionic2-calendar/calendar';
+import {CalendarComponent, IEvent} from 'ionic2-calendar/calendar';
 import {AlertController} from '@ionic/angular';
 import {DatePipe, formatDate} from '@angular/common';
 import {DownloadFormat} from '../../models/download-format';
 import {File} from '@ionic-native/file/ngx';
 import {Platform} from '@ionic/angular';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Event } from './../model/event';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-agenda',
@@ -12,6 +16,7 @@ import {Platform} from '@ionic/angular';
   styleUrls: ['./agenda.page.scss'],
 })
 export class AgendaPage implements OnInit {
+  private readonly COLLECTION_URL = 'events/';
   event = {
     title: '',
     desc: '',
@@ -35,7 +40,8 @@ export class AgendaPage implements OnInit {
   @ViewChild(CalendarComponent, null) myCal: CalendarComponent;
 
   constructor(private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string,
-              private file: File, private platform: Platform) { }
+              private file: File, private platform: Platform, private afAuth: AngularFireAuth,
+              private afs: AngularFirestore) { }
 
   ngOnInit() {
     this.resetEvent();
@@ -58,7 +64,8 @@ export class AgendaPage implements OnInit {
       startTime:  new Date(this.event.startTime),
       endTime: new Date(this.event.endTime),
       allDay: this.event.allDay,
-      desc: this.event.desc
+      desc: this.event.desc,
+      userId: this.afAuth.auth.currentUser.uid
     };
     if (eventCopy.allDay) {
       const start = eventCopy.startTime;
@@ -69,6 +76,7 @@ export class AgendaPage implements OnInit {
     }
 
     this.eventSource.push(eventCopy);
+    this.persistEventToFirebase(eventCopy);
     this.myCal.loadEvents();
     this.data.push(eventCopy);
     this.resetEvent();
@@ -237,7 +245,8 @@ export class AgendaPage implements OnInit {
       });
     }
   }
-  persistEventToFirebase() {
-
+  persistEventToFirebase(event: Event) {
+    const eventsCollection = this.afs.collection<Event>(this.COLLECTION_URL);
+    eventsCollection.add(event);
   }
 }
