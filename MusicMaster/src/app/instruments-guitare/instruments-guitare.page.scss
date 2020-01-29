@@ -1,0 +1,21 @@
+ion-content {
+    //--ion--background: url('../../../www/assets/wallpaper_music.jpeg') no-repeat center/cover;
+    --ion-background-color:#111D12;
+    --ion-background-hover-color:white;
+    
+  }
+  
+  ion-card {
+    background-color: white;
+    --ion-background-color:white;
+  }
+
+.guitare-card {
+    height: 30vh;
+    //--background: url('../../../www/img/music_colour_splash_original.jpg') no-repeat center/cover fixed; 
+    background-image: url('../../../www/img/cours-guitare.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color:#111D12;
+    margin-left: 50px;
+}
