@@ -14,7 +14,9 @@ export class PartitionPage implements OnInit {
   }
 
   uploadSheet(event) {
-    //console.log(event);
+    const file = event.target.files[0] as File;
+    const filePath = 'sheets/' + file.name;
+    const task = this.storage.upload(filePath, file);
   }
 
 
