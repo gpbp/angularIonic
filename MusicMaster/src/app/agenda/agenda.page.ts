@@ -1,7 +1,10 @@
 import {Component, Inject, LOCALE_ID, OnInit, ViewChild} from '@angular/core';
 import {CalendarComponent} from 'ionic2-calendar/calendar';
 import {AlertController} from '@ionic/angular';
-import {formatDate} from '@angular/common';
+import {DatePipe, formatDate} from '@angular/common';
+import {DownloadFormat} from '../../models/download-format';
+import {File} from '@ionic-native/file/ngx';
+import {Platform} from '@ionic/angular';
 
 @Component({
   selector: 'app-agenda',
@@ -31,7 +34,8 @@ export class AgendaPage implements OnInit {
 
   @ViewChild(CalendarComponent, null) myCal: CalendarComponent;
 
-  constructor(private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string) { }
+  constructor(private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string,
+              private file: File, private platform: Platform) { }
 
   ngOnInit() {
     this.resetEvent();
@@ -66,6 +70,7 @@ export class AgendaPage implements OnInit {
 
     this.eventSource.push(eventCopy);
     this.myCal.loadEvents();
+    this.data.push(eventCopy);
     this.resetEvent();
   }
   // Change current month/week/day
@@ -235,8 +240,4 @@ export class AgendaPage implements OnInit {
   persistEventToFirebase() {
 
   }
-
-
-
-
 }
