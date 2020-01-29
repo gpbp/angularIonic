@@ -9,57 +9,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content >
-  <ion-card class="solfege-card">
-  <table align=center >
-    <tr align=center valign="center">
-      <td> {{tutorial.name}} </td>
-      <td> <ion-button>  <a href="{{tutorial.link}}">Voir</a> </ion-button> </td>
-      <td> <ion-checkbox checked="{{tutorial.done}}" [(ngModel)]="tutorial.done" (ionChange)="isDone(tutorial)"> </ion-checkbox> </td>
-    </tr>
-    <tr align=center valign="center">
-      <td> 2 </td>
-      <td> Les différentes clés de partitions </td>
-      <td> <button class="favorite styled" type="button" onclick="window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';"> Voir </button> </td>
-      <td> <p> Fait </p> </td>
-      <td> <ion-checkbox [(ngModel)]="cours2"> </ion-checkbox> </td>
-    </tr>
-    <tr align=center valign="center">
-      <td> 3 </td>
-      <td> Lire une partition </td>
-      <td> <button class="favorite styled" type="button" onclick="window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';"> Voir </button> </td>
-      <td> <p> Fait </p> </td>
-      <td> <ion-checkbox [(ngModel)]="cours3"> </ion-checkbox> </td>
-    </tr>
-    <tr align=center valign="center">
-      <td> 4 </td>
-      <td> La portée, La mesure, La clef </td>
-      <td> <button class="favorite styled" type="button" onclick="window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';"> Voir </button> </td>
-      <td> <p> Fait </p> </td>
-      <td> <ion-checkbox [(ngModel)]="cours4"> </ion-checkbox> </td>
-    </tr>
-    <tr align=center valign="center">
-      <td> 5 </td>
-      <td> Les signes d'accentuation </td>
-      <td> <button class="favorite styled" type="button" onclick="window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';"> Voir </button> </td>
-      <td> <p> Fait </p> </td>
-      <td> <ion-checkbox [(ngModel)]="cours5"> </ion-checkbox> </td>
-    </tr>
-    <tr align=center valign="center">
-      <td> 6 </td>
-      <td> Les altérations </td>
-      <td> <button class="favorite styled" type="button" onclick="window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';"> Voir </button> </td>
-      <td> <p> Fait </p> </td>
-      <td> <ion-checkbox [(ngModel)]="cours6"> </ion-checkbox> </td>
-    </tr>
-    <tr align=center valign="center">
-      <td> 7 </td>
-      <td> Les intervalles </td>
-      <td> <button class="favorite styled" type="button" onclick="window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';"> Voir </button> </td>
-      <td> <p> Fait </p> </td>
-      <td> <ion-checkbox [(ngModel)]="cours7"> </ion-checkbox> </td>
-    </tr>
-  </table>
-</ion-card>
-
+<ion-content>
+  <ion-list-header>
+    Les bases
+  </ion-list-header>
+  <ion-list *ngFor="let tutorial of tutorials | async">
+    <ion-item [ngClass]="{ 'use-green-background': tutorial.done }">
+      <ion-label>{{tutorial.name}}</ion-label>
+      <ion-toggle checked="tutorial.done" [(ngModel)]="tutorial.done" (ionChange)="isDone(tutorial)"></ion-toggle>
+    </ion-item>
+  </ion-list>
 </ion-content>

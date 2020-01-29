@@ -1,5 +1,12 @@
-
-ion-toolbar {
-    --background: url('../../../www/img/musicworkshop-image.jpg') no-repeat center;
-}
+ion-content {
+    //--ion--background: url('../../../www/assets/wallpaper_music.jpeg') no-repeat center/cover;
+    --ion-background-color:#111D12;
+    --ion-background-hover-color:white;
+    
+  }
   
+  ion-card {
+    background-color: white;
+    --ion-background-color:white;
+  }
+
