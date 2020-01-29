@@ -21,7 +21,8 @@
     --background: white; 
 }
 ion-toolbar {
-    --background: url('../../../www/img/musicworkshop-image.jpg') no-repeat center; 
+   // --background: url('../../../www/img/musicworkshop-image.jpg') no-repeat center; 
+   //--background: orange; 
 }
 
 ion-content {
@@ -33,4 +34,10 @@ ion-content {
   .calendar {
     --background: white; 
     --ion-background-color: white; 
+  }
+
+  .bouton-export-agenda {
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-bottom: 20px;
   }
