@@ -13,8 +13,26 @@
   <ion-list-header>
     Les bases
   </ion-list-header>
-  <ion-list *ngFor="let tutorial of tutorials | async">
-    <ion-item [ngClass]="{ 'use-green-background': tutorial.done }">
+  <ion-list *ngFor="let tutorial of tutorials | async" >
+    <ion-item [ngClass]="{ 'use-green-background': tutorial.done }" *ngIf="tutorial.difficulty==1">
+      <ion-label>{{tutorial.name}}</ion-label>
+      <ion-toggle checked="tutorial.done" [(ngModel)]="tutorial.done" (ionChange)="isDone(tutorial)"></ion-toggle>
+    </ion-item>
+  </ion-list>
+  <ion-list-header>
+    Avancé
+  </ion-list-header>
+  <ion-list *ngFor="let tutorial of tutorials | async" >
+    <ion-item [ngClass]="{ 'use-green-background': tutorial.done }" *ngIf="tutorial.difficulty==2">
+      <ion-label>{{tutorial.name}}</ion-label>
+      <ion-toggle checked="tutorial.done" [(ngModel)]="tutorial.done" (ionChange)="isDone(tutorial)"></ion-toggle>
+    </ion-item>
+  </ion-list>
+  <ion-list-header>
+    Expert
+  </ion-list-header>
+  <ion-list *ngFor="let tutorial of tutorials | async" >
+    <ion-item [ngClass]="{ 'use-green-background': tutorial.done }" *ngIf="tutorial.difficulty==3">
       <ion-label>{{tutorial.name}}</ion-label>
       <ion-toggle checked="tutorial.done" [(ngModel)]="tutorial.done" (ionChange)="isDone(tutorial)"></ion-toggle>
     </ion-item>

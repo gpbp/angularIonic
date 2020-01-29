@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-partition',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PartitionPage implements OnInit {
 
-  constructor() { }
+  constructor(private storage: AngularFireStorage) { }
 
   ngOnInit() {
   }
+
+  uploadSheet(event) {
+    console.log(event);
+  }
+
 
 }
