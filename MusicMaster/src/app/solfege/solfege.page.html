@@ -10,28 +10,13 @@
 </ion-header>
 
 <ion-content>
-  <ion-header>Les bases</ion-header>
-  <ion-list *ngFor="let tuto of tutorials | async">
-    <ion-item *ngIf="tuto.difficulty_level <= 1">
-      <ion-label>{{tuto.name}}</ion-label>
-      <ion-button><a href="{{tuto.link}}">Cliquer ici pour voir</a></ion-button>
-      <ion-toggle slot="end"  [(ngModel)]="tuto.done" checked="{{tuto.done}}" (ionChange)="isDone(tuto)"></ion-toggle>
-    </ion-item>
-  </ion-list>
-  <ion-header>Les cours avancés</ion-header>
-  <ion-list *ngFor="let tuto of tutorials | async">
-    <ion-item *ngIf="tuto.difficulty_level > 1 && tuto.difficulty_level <=5">
-      <ion-label>{{tuto.name}}</ion-label>
-      <ion-button><a href="{{tuto.link}}">Cliquer ici pour voir</a></ion-button>
-      <ion-toggle slot="end"  [(ngModel)]="tuto.done" checked="{{tuto.done}}" (ionChange)="isDone(tuto)"></ion-toggle>
-    </ion-item>
-  </ion-list>
-  <ion-header>Pour les experts</ion-header>
-  <ion-list *ngFor="let tuto of tutorials | async">
-    <ion-item *ngIf="tuto.difficulty_level > 5">
-      <ion-label>{{tuto.name}}</ion-label>
-      <ion-button><a href="{{tuto.link}}">Cliquer ici pour voir</a></ion-button>
-      <ion-toggle slot="end"  [(ngModel)]="tuto.done" checked="{{tuto.done}}" (ionChange)="isDone(tuto)"></ion-toggle>
+  <ion-list-header>
+    Les bases
+  </ion-list-header>
+  <ion-list *ngFor="let tutorial of tutorials | async">
+    <ion-item [ngClass]="{ 'use-green-background': tutorial.done }">
+      <ion-label>{{tutorial.name}}</ion-label>
+      <ion-toggle checked="tutorial.done" [(ngModel)]="tutorial.done" (ionChange)="isDone(tutorial)"></ion-toggle>
     </ion-item>
   </ion-list>
 </ion-content>

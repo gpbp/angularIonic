@@ -11,7 +11,6 @@ import { Observable } from 'rxjs';
 })
 export class SolfegePage implements OnInit {
   private readonly COLLECTION_URL = 'tutorials/';
-
   tutorials: Observable<Tutorial[]>;
 
   constructor(private afs: AngularFirestore, private tutorialsCollection: AngularFirestoreCollection<Tutorial>) { }
@@ -26,7 +25,7 @@ export class SolfegePage implements OnInit {
       map(actions => actions.map(action => {
         const tutorial = action.payload.doc.data() as Tutorial;
         const tutorialId = action.payload.doc.id;
-        return {tutorialId, ...tutorial}; 
+        return {tutorialId, ...tutorial};
       }))
     );
   }

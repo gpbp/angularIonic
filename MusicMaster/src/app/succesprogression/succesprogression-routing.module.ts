@@ -7,7 +7,7 @@ import { ProgressionPage} from '../progression/progression.page';
 const routes: Routes = [
   {
     path: '',
-    component: SuccesprogressionPage
+    component: SuccesPage
   },
   {
     path: 'succes',
