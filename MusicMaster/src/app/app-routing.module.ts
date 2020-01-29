@@ -53,6 +53,18 @@ const routes: Routes = [
     path: 'instruments',
     loadChildren: () => import('./instruments/instruments.module').then( m => m.InstrumentsPageModule)
   },
+  {
+    path: 'instruments-guitare',
+    loadChildren: () => import('./instruments-guitare/instruments-guitare.module').then( m => m.InstrumentsGuitarePageModule)
+  },
+  {
+    path: 'instruments-piano',
+    loadChildren: () => import('./instruments-piano/instruments-piano.module').then( m => m.InstrumentsPianoPageModule)
+  },
+  {
+    path: 'instruments-batterie',
+    loadChildren: () => import('./instruments-batterie/instruments-batterie.module').then( m => m.InstrumentsBatteriePageModule)
+  },
 ];
 @NgModule({
   imports: [
