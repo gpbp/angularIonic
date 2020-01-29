@@ -1,14 +1,12 @@
 <ion-header>
   <ion-toolbar color="">
-    <ion-button slot="start">
+    <ion-button slot="start" style="margin-left: 10px;">
       <ion-back-button defaultHref="/menu"></ion-back-button>
     </ion-button>
     <ion-title>
       {{ viewTitle }}
     </ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="today()">Aujourd'hui</ion-button>
-    </ion-buttons>
+      <ion-button slot="end" (click)="today()" style="margin-right: 10px;">Aujourd'hui</ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -88,6 +86,6 @@
     </calendar>
   </ion-card>
 
-  <ion-button expand="block" (click)="exportMyCalendar()">Exporter Agenda</ion-button>
+  <ion-button expand="block" (click)="exportMyCalendar()" style="margin-right: 20px;margin-left: 20px;margin-bottom: 20px;">Exporter Agenda</ion-button>
 
 </ion-content>
