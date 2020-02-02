@@ -14,7 +14,7 @@
       <ion-list-header>
         Les bases
       </ion-list-header>
-      <ion-item *ngFor="let tutorial of tutorials | async | tutorials:1" [ngClass]="{ 'use-green-background': tutorial.done }" (click)="goToTutorial(tutorial.link)">
+      <ion-item *ngFor="let tutorial of tutorials | async | tutorials:1" [ngClass]="{ 'use-green-background': tutorial.done }" (click)="goToTutorial(tutorial)">
         <ion-label>{{tutorial.name}}</ion-label>
         <ion-toggle checked="tutorial.done" [(ngModel)]="tutorial.done" (ionChange)="isDone(tutorial)"></ion-toggle>
       </ion-item>

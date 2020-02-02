@@ -9,6 +9,10 @@ import { Observable } from 'rxjs';
   templateUrl: './solfege.page.html',
   styleUrls: ['./solfege.page.scss'],
 })
+
+/**
+ * Cette page permet d'accéder à une liste de cours de Solfège
+ */
 export class SolfegePage implements OnInit {
   private readonly COLLECTION_URL = 'tutorials/';
   tutorials: Observable<Tutorial[]>;
@@ -19,6 +23,9 @@ export class SolfegePage implements OnInit {
     this.initTutorials();
   }
 
+  /**
+   * Cette méthode permet d'initialiser la liste des cours depuis Firebase
+   */
   private initTutorials() {
     this.tutorialsCollection = this.afs.collection<Tutorial>(this.COLLECTION_URL);
     this.tutorials = this.tutorialsCollection.snapshotChanges().pipe(
@@ -30,14 +37,26 @@ export class SolfegePage implements OnInit {
     );
   }
 
+  /**
+   * Cette méthode permet de mettre à jour l'attribut done d'un tutoriel dans Firebase
+   *
+   * @param tutorialToUpdate : Le tutoriel dont on veut mettre à jour l'attribut done
+   */
   isDone(tutorialToUpdate: Tutorial) {
     const documentURL = this.COLLECTION_URL + tutorialToUpdate.tutorialId;
     const tutorial = {done: tutorialToUpdate.done};
     this.afs.doc<Tutorial>(documentURL).update(tutorial);
   }
 
-  goToTutorial(link) {
-    window.open(link, '_blank');
+  /**
+   * Cette méthode permet d'ouvrir le lien du tutoriel tout en passant l'attribut done à true
+   *
+   * @param tutorialToGo : le tutoriel que l'on souhaite ouvrir
+   */
+  goToTutorial(tutorialToGo: Tutorial) {
+    tutorialToGo.done = true;
+    this.isDone(tutorialToGo);
+    window.open(tutorialToGo.link, '_blank');
   }
 
 }
