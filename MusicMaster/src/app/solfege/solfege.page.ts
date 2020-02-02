@@ -36,4 +36,8 @@ export class SolfegePage implements OnInit {
     this.afs.doc<Tutorial>(documentURL).update(tutorial);
   }
 
+  goToTutorial(link) {
+    window.open(link, '_blank');
+  }
+
 }
