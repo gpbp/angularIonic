@@ -15,6 +15,10 @@ export class SignUpPage implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * create an user with email and their own password
+   * @param formData the data received from the HTML template
+   */
   createAccount(formData) {
     if (formData.valid) {
       const email = formData.value.email;
