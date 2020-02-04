@@ -15,6 +15,9 @@ export class MenuPage implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * method to log out from the session
+   */
   logOut() {
     this.afAuth.auth.signOut()
     .then(() => this.navigateToLogin())
