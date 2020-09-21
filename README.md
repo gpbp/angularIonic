@@ -6,7 +6,7 @@ Projet OCI 2019-2020
 - Léo ROUZIC    M2IL   
 - Maxime LAMBERT    M2IL
 - Hugo MINARD   M2IL
-- Trung PHAN    M2IL
+- Trung PHAM    M2IL
 
 
 ## Utiliser ionic:
